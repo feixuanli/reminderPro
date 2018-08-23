@@ -1,11 +1,16 @@
-import React, { Component } from '../../Library/Caches/typescript/2.9/node_modules/@types/react';
-import ReactDOM from '../../Library/Caches/typescript/2.9/node_modules/@types/react-dom';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import App from './components/App';
+import  { Provider } from 'react-redux';
+import { CreateStore, createStore } from 'redux';
+import reducer from './reducers';
 
+const store = createStore(reducer);
 
 ReactDOM.render(
-
-        <App />,
+        <Provider store={store}>
+                <App />
+        </Provider>,
         document.getElementById('root')
 
 );
